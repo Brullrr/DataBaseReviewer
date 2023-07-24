@@ -1,0 +1,735 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>103</title>
+<style>
+body {
+	background-color: none;
+	font-family: "NHHandwriting";
+	margin: 0;
+	min-height: 100vh;
+}
+.outline {
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	background: linear-gradient(to right bottom,  #C5C6C7 10%, #0B0C10 50%, #C5C6C7 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.statsHolder {
+	height: 80vh;
+	width: 80vw;
+	background: linear-gradient(to bottom,  #0B0C10 10%, #1F2833 30%);
+	margin-top: 10vh;
+	margin-left: 10vw;
+	border-radius: 24px;
+	border: 8px double #45A29E;
+	display: grid;
+	grid-template-columns: 100%;
+	overflow: hidden;
+	color: #66FCF1;
+	cursor: pointer;
+}
+.statsTitle {
+	justify-self: center;
+	transition: all 1.5s linear;
+	font-size: 4vh;
+	margin-left: -100vw;
+}
+.statsDaysLeft {
+	justify-self: center;
+	transition: all 2.25s linear;
+	font-size: 4vh;
+	margin-left: -150vw;
+}
+.statsProgress {
+	justify-self: center;
+	transition: all 3.25s linear;
+	font-size: 4vh;
+	margin-left: -250vw;
+}
+.modal {
+	height: 80vh;
+	width: 80vw;
+	background-color: #C5C6C7;
+	border-radius: 24px;
+	border: 8px double #004141;
+	overflow: hidden;
+	color: #45A29E;
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	box-shadow: 2px 2px 20px #003030, -2px -2px 20px #003030;
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-template-rows: 15% 10% 10% 65%;
+}
+.backdrop {
+	position: absolute;
+	background-color: #0B0C10;
+	opacity: 0.5;
+	cursor: pointer;
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.gradingButton {
+	border: 4px solid #004141;
+	border-radius: 12px;
+	cursor: pointer;
+	width: 80%;
+	height: 80%;
+	margin-top: 10%;
+	justify-self: center;
+	transition: all 0.3s ease-out;
+}
+.gradingButton:hover {
+	transform: scale(1.1);
+}
+.flipButton {
+	grid-row: 1/2;
+	grid-column: 1/5;
+	margin-top: 2.5%;
+}
+.modalQWriting {
+	grid-column: 1/5;
+	grid-row: 2/3;
+	justify-self: center;
+	padding-top: 2%;
+}
+.modalAWriting {
+	grid-column: 1/5;
+	grid-row: 3/4;
+	justify-self: center;
+	padding-top: 2%;
+	color: #004141;
+}
+.modalImg {
+	grid-column: 1/5;
+	grid-row: 4/5;
+	height: 90%;
+	width: 90%;
+	margin: 0 0 0 5%;
+	border-radius: 24px;
+	border: 8px double #004141;
+	box-sizing: border-box;
+}
+
+</style>
+	</head>
+<body>
+	<div class="outline"></div>
+</body>
+<script>
+
+	const outline = document.querySelector(".outline");
+	const date = new Date();
+	const currentMonth = date.getMonth();
+	const currentDay = date.getDate();
+
+	data = [
+		{
+			question: `SQLの省略は？`,
+			answer: `Structured Query Language`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SQLの国際の規格`,
+			answer: `ISO/IEC 9075`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},	
+		{
+			question: `SQLの日本の規格群`,
+			answer: `JIS X 3005`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `DDLとは？`,
+			answer: `データ定義言語DataDefinitionLanguage`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `DMLとは`,
+			answer: `データ操作言語DataManipulationLanguage`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SELECTの後に何が来れる？`,
+			answer: `列名か演算子や定数`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SQLで＊は何ができる？`,
+			answer: `すべての列を指定する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `''って何が入る？なぜ？`,
+			answer: `文字列の定数を指定するときには''でかこむ`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `図を見て何が起きているのを説明してください`,
+			answer: `表から発見日を抽出して重複を取り除く`,
+			pictureQ: `images/1.png`,
+			pictureA: `images/1.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SELECT　＊　FROM　R　WHERE　発見日　＝　'2013-07-19'`,
+			answer: `Rから発見日が'2013-07-19'と同じものを抽出する`,
+			pictureQ: `images/explain.png`,
+			pictureA: `images/explain.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `θとは？`,
+			answer: `比較演算子　＝　＜　＞　＜＝　＞＝　＜＞　`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `説明してください`,
+			answer: `商品から商品コードが00002なら商品名と特価を抽出する。特価は単価を80%したものの列。`,
+			pictureQ: `images2.png`,
+			pictureA: `images/2.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `四つの計算式を教えてください。`,
+			answer: `加算＋、減算ー、乗算＊、除算／`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `説明してください`,
+			answer: `商品のテーブルから名前として'商品='が商品つなぐ。||は連結演算子`,
+			pictureQ: `images/3.png`,
+			pictureA: `images/3.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `説明してください`,
+			answer: `商品のテーブルから名前として'商品='が商品つなぐ。||は連結演算子`,
+			pictureQ: `images/3.png`,
+			pictureA: `images/3.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `Yは何？Xは何？なんで？`,
+			answer: `Yは得意先の表、Xは受注の表。ASが省略してる。`,
+			pictureQ: `images/4.png`,
+			pictureA: `images/4.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `COALESCE(SUM(B1),0)`,
+			answer: `COALESCEは引数を指定し、NULLでない場合、SUM(B1)を返す。NULLなら、０を返す`,
+			pictureQ: `images/explain.png`,
+			pictureA: `images/explain.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `入館時刻は12:00よりも前の人の数を集計する。赤い○に何が入る？`,
+			answer: ``,
+			pictureQ: `images/5.png`,
+			pictureA: `images/5a.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `OLAP`,
+			answer: `OnLine Analytical Processing`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `1からの行番号を習得したい関数は？`,
+			answer: `ROW_NUMBER()`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `順位付けをする（同じ順位の場合、そのあとの順位を飛び番にしない）`,
+			answer: `DENSE_RANK()`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `n行前の[指定した列名の値]を取得する（n省略時=１）`,
+			answer: `LAG(列名 [,n])`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `n行後の[指定した列名の値]を取得する（n省略時=１）`,
+			answer: `LEAD(列名 [,n])`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `n個に均等に分割し、その分割した集合に対して順位をつける`,
+			answer: `NTILE(n)`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `表を完成してください`,
+			answer: ``,
+			pictureQ: `images/6.png`,
+			pictureA: `images/6a.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `表を完成してください`,
+			answer: ``,
+			pictureQ: `images/7.png`,
+			pictureA: `images/7a.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `表を完成してください`,
+			answer: ``,
+			pictureQ: `images/8.png`,
+			pictureA: `images/8a.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `RANKとDENSE_RANKの違いは？`,
+			answer: `RANK関数だと、３番が二つある場合、その後の順位は５番目にする。DENSE_RANK関数にすると、３番目が二つあるが、その後の順位は飛ばさずに4番目にする。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `NTILE(4)４は何を表すの？`,
+			answer: ``,
+			pictureQ: `images/9.png`,
+			pictureA: `images/9a.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `CURRENT ROW`,
+			answer: `現在の行、もしくは現在の値　ROWSの場合は現在の行、RANGEの場合は現在の値`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `n PRECEDING`,
+			answer: `n 行前、もしくはｎ直前`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `n FOLLOWING`,
+			answer: `ｎ行後、もしくはｎ行直後`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `UNBOUND PRECEDING`,
+			answer: `先頭の行`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `UNBOUND FOLLOWING`,
+			answer: `末尾の行`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: ``,
+			answer: ``,
+			pictureQ: `images/10.png`,
+			pictureA: `images/10a.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `WHERE x >= '20030704' AND x <= '20030706'    他の書き方？`,
+			answer: `WHERE x BETWEEN '20030704' AND '20030706'`,
+			pictureQ: `images/10.png`,
+			pictureA: `images/10.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `LIKEは？`,
+			answer: `文字列の中の一部分のみ条件指定する場合に使用する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `％の三つ使い方は？`,
+			answer: `'%text' 'text%' '%text%'`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `LIKEで _ は何？`,
+			answer: `１桁目は任意の文字でよい`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `NULLだけを取り出したい時に何を使う？`,
+			answer: `WHERE　なんとか　IS　NULL`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+		 {
+			question: `否定したいときに何を使う？`,
+			answer: `NOT`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+	 	},
+
+	];
+
+	// {
+	// 		question: ``,
+	// 		answer: ``,
+	// 		pictureQ: `images/0.png`,
+	// 		pictureA: `images/0.png`,
+	// 		level: 0,
+	// 		dayCompleted: ``,
+	// 	},
+	
+	if(localStorage.getItem(`data`) !== null){
+		dataPrev = JSON.parse(localStorage.getItem(`data`));
+		
+		data.forEach(e => {
+			let pushThis = true;
+			dataPrev.forEach( f => {
+				if(f.question === e.question) {
+					f.answer = e.answer;
+					f.pictureA = e.pictureA;
+					f.pictureQ = e.pictureQ;
+					pushThis = false;	
+				};
+			});
+			if(pushThis) {dataPrev.push(e)};
+		});
+		dataPrev.forEach((e, index) => {
+			let removeThis = true;
+			data.forEach( f => {
+				if(f.question === e.question) {
+					removeThis = false;	
+				};
+			});
+			if(removeThis) {
+				dataPrev.splice(index, 1);
+
+			};
+			
+		});
+
+
+
+		data = dataPrev;
+		localStorage.setItem(`data`, JSON.stringify(data));
+	} else {
+		localStorage.setItem(`data`, JSON.stringify(data));
+	};
+
+
+
+	const dates = [
+		{
+			month: 4,
+			days: 31,
+		},
+		{
+			month: 5,
+			days: 30,
+		},
+		{
+			month: 6,
+			days: 31,
+		},
+		{
+			month: 7,
+			days: 31,
+		},
+		{
+			month: 8,
+			days: 30,
+		},
+		{
+			month: 9,
+			days: 8,
+		},
+	];
+
+	let totalDays = 0;
+	for(let i = 0; i< dates.length; i ++) {
+		if(dates[i].month === currentMonth) {
+			totalDays = totalDays + dates[i].days - currentDay;
+		} else if(dates[i].month > currentMonth) {
+			totalDays = totalDays + dates[i].days;
+		};
+	};
+
+	const calculateScore = () => {
+		let maximumScore = 0;
+		let totalGrade = 0;
+		data.forEach( e => {
+			totalGrade = totalGrade + e.level;
+			maximumScore = maximumScore + 10;
+		});
+	statsProgress.innerHTML = "Grade:  " + ~~((totalGrade/maximumScore)*100) + "%";
+	};
+	
+
+	const statsHolder = document.createElement("div");
+	statsHolder.classList.add("statsHolder");
+	outline.appendChild(statsHolder);
+
+	const statsTitle = document.createElement("p");
+	statsTitle.innerHTML = "Stats";	
+	statsTitle.classList.add("statsTitle");
+	setTimeout(() => {
+		statsTitle.style.marginLeft = "0px";
+	}, 10);
+	statsHolder.appendChild(statsTitle);
+
+	const statsDaysLeft = document.createElement("p");
+	statsDaysLeft.innerHTML = "Remaining Days:  " + totalDays;	
+	statsDaysLeft.classList.add("statsDaysLeft");
+	setTimeout(() => {
+		statsDaysLeft.style.marginLeft = "0px";
+	}, 500);
+	statsHolder.appendChild(statsDaysLeft);
+
+	const statsProgress = document.createElement("p");
+	calculateScore();
+	statsProgress.classList.add("statsProgress");
+	setTimeout(() => {
+		statsProgress.style.marginLeft = "0px";
+	}, 500);
+	statsHolder.appendChild(statsProgress);
+
+	statsHolder.addEventListener("click", () => {
+		openModal();
+	});
+
+
+	let modal = document.createElement("div");
+	let backdrop = document.createElement("div");
+	backdrop.classList.add("backdrop");
+	backdrop.addEventListener("click", () => {
+		closeModal();
+	});
+
+	modal.classList.add("modal");
+	let currentNum = 0;
+
+	const chooseQuestion = () => {
+		let queenOfTheHill = 10;
+		let lowestData = [];	
+		data.forEach( (e, index) => {
+			if(e.level < queenOfTheHill){
+				queenOfTheHill = e.level;
+			};
+			
+		});
+		data.forEach( (e, index) => {
+			if(e.level === queenOfTheHill){
+				lowestData.push(index);
+			};
+		});
+		currentNum = lowestData[~~(Math.random()*lowestData.length)];
+	};
+	chooseQuestion();
+
+
+	let currentQuestion = data[currentNum].question;
+	let currentAnswer = data[currentNum].answer;
+	let isFlipped = false;
+
+
+	
+	const flipButton = (prop) => {
+		isFlipped = true;
+		modal.removeChild(prop.target);
+		openModal();
+	};
+	
+	const buttonCreator = (buttonNum) => {
+		let button = document.createElement("button");
+		button.classList.add("gradingButton");
+		modal.appendChild(button);
+
+
+		
+		switch(buttonNum) {
+			case 1:
+				button.innerHTML = "FAIL";
+				button.style.backgroundColor = "red";
+				break;
+			case 2:
+				button.innerHTML = "BAD";
+				button.style.backgroundColor = "salmon";
+				break;
+			case 3:
+				button.innerHTML = "GOOD";
+				button.style.backgroundColor = "lightgreen";
+				break;
+			case 4:
+				button.innerHTML = "PASS";
+				button.style.backgroundColor = "green";
+				break;
+			case 5:
+				button.innerHTML = "FLIP";
+				button.classList.add("flipButton");
+				break;
+		};
+
+		button.addEventListener("click", (prop)=>{
+			if(buttonNum === 5){
+				flipButton(prop);
+			} else {
+				switch(buttonNum) {
+					case 1:
+						data[currentNum].level = (data[currentNum].level - 2) < 0 ? 0 : data[currentNum].level - 2;
+						break;
+					case 2:
+						data[currentNum].level = (data[currentNum].level - 1) < 0 ? 0 : data[currentNum].level - 1;
+						break;
+					case 3:
+						data[currentNum].level = (data[currentNum].level + 1) > 10 ? 10 : data[currentNum].level + 1;
+						break;
+					case 4:
+						data[currentNum].level = (data[currentNum].level + 2) > 10 ? 10 : data[currentNum].level + 2;
+						break;
+				};
+				closeModal();
+				localStorage.setItem(`data`, JSON.stringify(data));
+			};
+		});
+		return button;
+	};
+	const openModal = () => {
+		modal.innerHTML = "";
+		
+		if(isFlipped) {
+			buttonCreator(1);
+			buttonCreator(2);
+			buttonCreator(3);
+			buttonCreator(4);
+		} else {
+			buttonCreator(5);
+		};
+
+		let questionP = document.createElement("div");
+		questionP.classList.add("modalQWriting");
+		let questionImg = document.createElement("img") ;
+		questionImg.classList.add("modalImg");
+		let answerP = isFlipped ? document.createElement("div") : false;
+		answerP && answerP.classList.add("modalAWriting");
+		let breaker = document.createElement("BR");
+		questionP.innerHTML = currentQuestion;
+		answerP.innerHTML = currentAnswer;		
+
+		modal.appendChild(questionP);
+		answerP && modal.appendChild(answerP);
+		console.log(data[currentNum].pictureA)
+		questionImg.src = isFlipped ? data[currentNum].pictureA : data[currentNum].pictureQ;	
+		modal.appendChild(questionImg);
+		outline.appendChild(backdrop);
+		outline.appendChild(modal);	
+	};
+	const closeModal = () => {
+		modal.innerHTML = "";
+		outline.removeChild(backdrop);
+		outline.removeChild(modal);
+		chooseQuestion();	
+		currentQuestion = data[currentNum].question;
+		currentAnswer = data[currentNum].answer;
+		isFlipped = false;
+		calculateScore();
+	};
+
+
+
+</script>
+</html>
