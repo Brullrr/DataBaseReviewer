@@ -49,9 +49,15 @@ body {
 }
 .statsProgress {
 	justify-self: center;
-	transition: all 3.25s linear;
+	transition: all 3.00s linear;
 	font-size: 4vh;
 	margin-left: -250vw;
+}
+.reviewsProgress {
+	justify-self: center;
+	transition: all 3.75s linear;
+	font-size: 4vh;
+	margin-left: -300vw;
 }
 .modal {
 	height: 80vh;
@@ -133,6 +139,7 @@ body {
 	const date = new Date();
 	const currentMonth = date.getMonth();
 	const currentDay = date.getDate();
+	let numOfReviews = 0;
 
 	data = [
 		{
@@ -993,7 +1000,7 @@ body {
 		},
 		{
 			question: `PPMとは？`,
-			answer: `プロダクトポートフォリオマネジメント：市場長率、市場占有の２つの軸から成るマトリクス図を４つの象限に区別し、製品の市場における位置付けを分析することで最適な資源配分を検討する手法です`,
+			answer: `プロダクトポートフォリオマネジメント：市場長率、市場占有の２つの軸から成る花形，金のなる木，問題児，負け犬の4象限のマトリックス図を４つの象限に区別し、製品の市場における位置付けを分析することで最適な資源配分を検討する手法です`,
 			pictureQ: `images/0.png`,
 			pictureA: `images/0.png`,
 			level: 0,
@@ -1079,11 +1086,1397 @@ body {
 			level: 0,
 			dayCompleted: ``,
 		},
+		{
+			question: `recursive`,
+			answer: `再帰的 descirbes a function or method that repeatedly calculates a smaller part of itself to arrive at a result.`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `fail soft`,
+			answer: `shuts down essential functions when something goes wrong. Can continue to provide basic functionality. "safe-mode"`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `fail safe`,
+			answer: `allows it to fail safely. dead man's switch`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `fault masking`,
+			answer: `occurs when a service-affecting alarm or condition raised against a monitored entity suppresses the reporting of other alarms or conditioins that are raised against the same entity. 1 defect prevents detection of another.`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `fault avoidance`,
+			answer: `minimizes risks before system fault`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `fault tolerant`,
+			answer: `if one fails the other kicks in. like two engines on a plane`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `call by value`,
+			answer: `値呼出し：元の変数の値には反映されない`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `call by reference`,
+			answer: `参照呼出し：元の変数の値にも反映される`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `RFID`,
+			answer: `radio frequency identification: wireless connection that uses electormagnetic or electrostatic coupling in  radio frequency to identify an object, animal, or person. Uses an attena, transciever, and a transponder. `,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `可視光通信`,
+			answer: `可視光でデータ通信する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `タッチパネル`,
+			answer: `静電容量の変化を捉えて位置を検出する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `IrDA`,
+			answer: `赤外線でデータを通信する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `PCM`,
+			answer: `pulse code modulation: digitally represent sampled analog signals. Each sample is quantized to nearest value.`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `stored procedure`,
+			answer: `saved query that can be reused when accessing a database. lowers the amount of communication required between client and server`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `S/MIME`,
+			answer: `Secure Multipurpose Internet Mail Extensions:  MIMEを拡張した電子メールの暗号化とディジタル署名に関する標準`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SSL/TLS`,
+			answer: `secure socket layer and transport layer security. used in HTTPS authentication`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ダイジェスト認証`,
+			answer: `auth used in HTTP.  NOT https`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `標的型攻撃メール`,
+			answer: `件名や本文に受信者の業務に関係がありそうな内容が記述されている`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `架空請求詐欺メール`,
+			answer: `支払う必要ない料金を振り込ませるために債権回収会社などを装い無差別に送信される`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `PMBOK`,
+			answer: `project management body of knowledge:プロジェクトマネジメントに関するスコープ，タイム，コスト，品質，人的資源，コミュニケーション，リスクなど九つの知識エリアから成る知識体系`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `4つのリスク対策`,
+			answer: `回避Avoidance,軽減mitigation, 受容acceptance, 転嫁redirect/blame,`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `改善活動図　６つ`,
+			answer: `１．物流コストの削減　２．KGIの設定key goal indicator 3. CSFの抽出critical sucess factor 4.KPIの設定keyperformance indicator　５．改善活動の実施 6.成果の計測と目標値とのギャップ分析　`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `MBO`,
+			answer: `management by objects: 自ら設定した目標の達成を目指して従業員が主体的に業務に取り組み，その達成度に応じて評価が行われることである。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `MRP`,
+			answer: `material requirement planning: production planning, scheduling inventory control system used to manage the manufacturing process.`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ベストフィット方式`,
+			answer: `メモリ割り当てを制御するアルゴリズムで、空き領域の大きさ順リストを先頭から探索し、要求サイズに最も合致する空きブロックを割り当てる方式です。("最も合致する"とは要求サイズよりも大きく、割り当て後の残り領域が最も小さくなること)
+最もフィットする領域を使用するのでメモリ割り当てごとに小さい空き領域が生じ、最終的には使用するのが難しいほど小さな領域が残る傾向があります。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ファーストフィット方式`,
+			answer: `空きブロックをメモリの先頭から検索していき、要求サイズ以上の空きブロックが見つかった時点でそれを割り当てるアルゴリズム`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ワーストフィット方式`,
+			answer: `ベストフィットと同様に空きブロック全体を検索後、最も大きな領域を割り当てるアルゴリズム`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `NNTP`,
+			answer: `Network News Transfer Protocolの略。主にネットニュース(Usenet)の記事を読んだり記事を投稿したりする際に使われるプロトコルです。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `NTP`,
+			answer: `Network Time Protocolの略。ネットワークに接続されている機器において、機器が持つ時計を正しい時刻へ同期するための通信プロトコルです。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SNMP`,
+			answer: `Simple Network Management Protocol :TCP/IPの環境で使用されるプロトコルのうち，構成機器や障害時の情報収集を行うために使用されるネットワーク管理プロトコル`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SSH`,
+			answer: ``,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SET`,
+			answer: `Secure Electronic Transaction: オンラインショッピングで安全にクレジット決済を行うための仕様`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `PGP`,
+			answer: `Pretty Good Privacy: 対称暗号技術と非対称暗号技術を併用して電子メールの暗号化，復号の機能をもつツール`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SSH`,
+			answer: `Secure Shell:公開鍵暗号や認証の技術を利用して、安全にリモートコンピュータと通信するためのプロトコル`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `XSS`,
+			answer: `クロスサイトスクリプティング:動的にWebページを生成するアプリケーションのセキュリティ上の不備を意図的に利用し、サイト間を横断して悪意のあるスクリプトを混入させることでユーザのクッキーを盗むなどの攻撃を行う行為。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `クロスサイトリクエストフォージェリ`,
+			answer: `悪意のあるスクリプトが埋め込まれたWebページを訪問者に閲覧させて，別のWebサイトで，その訪問者が意図しない操作を行わせる攻撃手法。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `セッションハイジャック`,
+			answer: `認証が完了してセッションを開始しているブラウザとWebサーバの間の通信において、CookieやセッションIDなどのセッション情報を盗むことで、対象セッションを通信当事者以外が乗っ取る攻撃手法`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `クラッシング`,
+			answer: `プロジェクトのスコープを変更せずにコストを追加投入することでプロジェクト全体のスケジュールを短縮させる方法です`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `経営部門の責任`,
+			answer: `監査結果の外部への開示`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `システム管理部門の責任`,
+			answer: `監査対象システムの管理`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `被監査部門の責任`,
+			answer: `監査報告会で指摘した問題点の改善`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `システム監査人が負う責任`,
+			answer: `監査報告書に記載した監査意見`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `内部統制`,
+			answer: `企業の健全な経営を実現するために、その組織の内部において適用されるルールや業務プロセスを整備し運用すること、またはその結果確立されたシステムをいいます`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `構造図 6`,
+			answer: `クラス図，コンポジット構造図，コンポーネント図，配置図，オブジェクト図，パッケージ図`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `振る舞い図 7`,
+			answer: `アクティビティ図，ユースケース図，シーケンス図，インタラクション概念図，コラボレーション図，タイミング図，ステートマシン図`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `E-R図の説明`,
+			answer: `データ中心にプロセスを表現するためにデータをエンティティとその属性で表し，エンティティ間の関連を図にする。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `DFD`,
+			answer: `Data Flow Diagram: データの流れによってプロセスを表現するために，データの発生，吸収の場所，蓄積場所，データの処理をデータの流れを示す矢印でつないで表現する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `BPD`,
+			answer: `Business Process Diagram: プロセスの機能を網羅的に表現するために，一つの要件に対し発生する事象を条件分岐の形式で記述する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `正味現在価値法の説明`,
+			answer: `一定期間のキャッシュフローを，時間的変化に割引率を設定して現在価値に換算した上で，キャッシュフローの合計値を求め，その大小で評価する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `PBP`,
+			answer: `pay back period: 回収期間法: キャッシュフロー上で初年度の投資によるキャッシュアウトフローが何年後に回収できるかによって評価する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SQuBOK`,
+			answer: `Software Quality Body of Knowledge: ソフトウェア品質の基本概念，ソフトウェア品質マネジメント，ソフトウェア品質技術の三つのカテゴリから成る知識体系`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `SWEBOK`,
+			answer: `Software Engineering Body of Knowledge: ソフトウェア要求，ソフトウェア設計，ソフトウェア構築，ソフトウェアテスティング，ソフトウェア保守など10の知識エリアから成る知識体系`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `BABOK`,
+			answer: `Business Analysis Body of Knowledge: ビジネスアナリシスの計画とモニタリング，引き出し，要求アナリシス，基礎コンピテンシなど七つの知識エリアから成る知識体系`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `労使協調の説明`,
+			answer: `労使双方が労働条件についての合意を形成し，協調して収益の増大を目指すことである。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ワークライフバランスの説明`,
+			answer: `従業員が仕事と生活の調和を図り，やりがいをもって業務に取り組み，組織の活力を向上させることである。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `アンゾフの成長マトリクス`,
+			answer: `事業の成長戦略を，製品(既存・新規)と市場(既存・新規)の2軸を用いて，市場浸透，市場開発，製品開発，多角化の4象限のマトリックスに分類する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `バリューチェーン`,
+			answer: `業務を，購買物流，製造，出荷物流，販売・マーケティング，サービスという五つの主活動と，人事・労務管理などの四つの支援活動に分類する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ファイブフォース分析の説明`,
+			answer: `競争要因を，新規参入の脅威，サプライヤの交渉力，買い手の交渉力，代替商品の脅威，競合企業の五つのカテゴリに分類する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+	
+		{
+			question: `技術のSカーブ`,
+			answer: `技術の進歩の過程を表すものであり，当初は緩やかに進歩するが，やがて急激に進歩し，成熟期を迎えると進歩は停滞気味になる`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ハイプ曲線の説明`,
+			answer: `技術の期待感の推移を表すものであり，黎(れい)明期，流行期，反動期，回復期，安定期に分類される`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `バスタブ曲線の説明`,
+			answer: `工業製品の故障発生の傾向を表すものであり，初期故障期間では故障率は高くなるが，その後の偶発故障期間での故障率は低くなり，製品寿命に近づく摩耗故障期間では故障率は高くなる`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `経験曲線`,
+			answer: `工業製品において生産量と生産性の関係を表すものであり，生産量の累積数が増加するほど生産性は向上する傾向にある。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `事業部制組織の説明`,
+			answer: `業務遂行に必要な職能と利益責任を，製品別，顧客別又は地域別にもつことによって，自己完結的な経営活動が展開できる組織である。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `マトリックス組織の説明`,
+			answer: `構成員が，自己の専門とする職能部門と特定の事業を遂行する部門の両方に所属する組織である`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `職能別組織の説明`,
+			answer: `購買・生産・販売・財務などの仕事の性質によって，部門を編成した組織である`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `プロジェクト組織の説明`,
+			answer: `特定の課題のもとに各部門から専門家を集めて編成し，期間と目標を定めて活動する一時的かつ柔軟な組織である。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `制御情報`,
+			answer: `control information`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `精度`,
+			answer: `accuracy`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `位取り`,
+			answer: `place value`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `制約`,
+			answer: `constraint`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `整合性`,
+			answer: `integrity, consistency`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `保守性`,
+			answer: `maintainability`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `非ナル`,
+			answer: `NOT NULL`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `検査制約`,
+			answer: `CHECK()`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `参照制約`,
+			answer: `referential restraint`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `表明`,
+			answer: `declaration, announcement`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `付加`,
+			answer: `add, supplementation`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `基底表`,
+			answer: `basis table`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `簡素`,
+			answer: `simple`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `実在`,
+			answer: `existence`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `誤操作`,
+			answer: `misoperation`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `契機`,
+			answer: `opportuniy`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `仮想記憶`,
+			answer: `secondary storage`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `光源`,
+			answer: `light source`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `屈折`,
+			answer: `refraction`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `透過`,
+			answer: `transmission`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `陰影`,
+			answer: `shading`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `一貫性`,
+			answer: `consistency`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `原始性`,
+			answer: `atomicity`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `耐久性`,
+			answer: `durability`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `独立性`,
+			answer: `isolation`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `復号`,
+			answer: `decrpyt`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `暗号`,
+			answer: `encrypt`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `占有`,
+			answer: `possesion`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `帰属`,
+			answer: `returned attribute`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `冗長`,
+			answer: `redundant`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `非負`,
+			answer: `non negative`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `整数`,
+			answer: `integer`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `階乗`,
+			answer: `factorial`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `並列処理`,
+			answer: `parallel processing`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `赤外線`,
+			answer: `infrared`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `静電容量`,
+			answer: `capacitance`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `可視光`,
+			answer: `visible light`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `符号化`,
+			answer: `encode`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `量子化`,
+			answer: `quantization`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `標本化`,
+			answer: `sampling`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `認証`,
+			answer: `authentication`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `公開鍵`,
+			answer: `public key`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `束ねる`,
+			answer: `bundle`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `機能性`,
+			answer: `functionality`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `信頼性`,
+			answer: `reliability`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `使用性`,
+			answer: `usability`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `効率性`,
+			answer: `effeciency`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `移植性`,
+			answer: `portability`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `債権`,
+			answer: `claim / credit`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `機構`,
+			answer: `mechanism`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `独占`,
+			answer: `monopolize`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `分散`,
+			answer: `distributed`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `調停者`,
+			answer: `arbitor`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `増員`,
+			answer: `increase personnel`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+
+		{
+			question: `分母`,
+			answer: `denominator`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ベクトル処理方式の説明`,
+			answer: `処理すべきベクトルの長さがベクトルレジスタより長い場合，ベクトルレジスタ長の組に分割して処理を繰り返す方式である。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `スーパーパイプラインの説明`,
+			answer: `パイプラインを更に細分化することによって高速化を図る方式である。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `スーパースカラの説明`,
+			answer: `複数のパイプラインを用いて，同時に複数の命令を実行可能にすることによって高速化を図る方式である。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `VLIW`,
+			answer: `Very Long Instruction Word: 命令語を長く取り，一つの命令で複数の機能ユニットを同時に制御することによって高速化を図る方式である。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `スケールアップ`,
+			answer: `サーバを構成する各処理装置をより性能の高いものに交換したり、プロセッサの数などを増やすことでサーバ当たりの処理能力を向上させる`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `スケールアウト`,
+			answer: `接続されるサーバの台数を増やすことでサーバシステム全体としての処理能力や可用性を向上させる同等の性能アップであればスケールアップよりも低コストであることが多い`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `イベントドリブンプリエンプション方式の説明`,
+			answer: `各プロセスに優先度が付けられていて，イベントの発生を契機に，その時点で最高優先度のプロセスを実行する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `残留リスク`,
+			answer: `(保有リスク):リスク対応後に残るリスク`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `投機リスクの説明`,
+			answer: `利益を生む可能性に内在する損失発生の可能性として存在するリスク`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `固有リスクの説明`,
+			answer: `業務の性質や本来有する特性から生じるリスク`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `発見リスクの説明`,
+			answer: `監査手続を実施しても監査人が重要な不備を発見できないリスク`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `IaaS`,
+			answer: `Infrastructure as a Service: HaaS(Hardware as a Service)と同義:ユーザは基盤にあるインフラストラクチャを管理したりコントロールしたりすることはないが、オペレーティングシステム、ストレージ、実装されたアプリケーションに対するコントロール権を持ち. You manage OS and data`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `PaaS`,
+			answer: `Platform as a Service:ユーザは基盤にあるインフラストラクチャを、ネットワークであれ、サーバーであれ、オペレーティングシステムであれ、ストレージであれ、管理したりコントロールしたりすることはない。一方ユーザは自分が実装したアプリケーションと、場合によってはそのアプリケーションをホストする環境の設定についてコントロール権を持つ。You dont manage OS, but you do manage data`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `CSMA/CD`,
+			answer: `Carrier Sense Multiple Access with Collision Detection: 衝突発生時の再送動作によって，衝突の頻度が増すとスループットが下がる`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `XPの１２のプラクティス`,
+			answer: `計画ゲーム、短期リリース、共通の用語、単純さ優先、テスト駆動開発、リファクタリング、ペアプログラミング、ソースコードの共同所有、常に統合、週40時間労働、顧客も一緒、コーディング規約`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `コーディング規約`,
+			answer: `上記を実現するためのにコーディング規約を決めて遵守する`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `顧客も一緒`,
+			answer: `顧客は開発チームと同室(または近く)で開発の見守りを行う。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: ``,
+			answer: ``,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `週40時間労働`,
+			answer: `集中力を高め、開発効率を高めるためには心身の健康を保つ必要があるため残業を認めない。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `常に統合`,
+			answer: `あるコードが単体テストをパスする度にすぐに結合テストを行い問題点や改善点を探す。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ソースコードの共同所有`,
+			answer: `開発チーム全員がどのコードに対しても改善処置を行えるようにするため、ソースコードの所有者を決めない。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ペアプログラミング`,
+			answer: `これは二人一組で実装を行い、一人が実際のコードをコンピュータに打ち込み、もう一人はそれをチェックしながら補佐するという役割を随時交代しながら作業を進める。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `リファクタリング`,
+			answer: `完成済みのものでもソフトウェアの機能を変えずにソースコードの品質を良くすることを随時行う。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `テスト駆動開発`,
+			answer: `求める機能を明確化するため、テスト対象コードを実装するよりも前に単体テストを作成する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `単純さ優先`,
+			answer: `品質低下のもとと複雑な実装の組込みを避け最も単純な実装を優先する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `共通の用語`,
+			answer: `開発メンバ・顧客・管理者全員でイメージや理解を共有するため、用語集や図表を作成する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `短期リリース`,
+			answer: `動くソフトウェアを1～3ヶ月というできるだけ短い時間間隔でリリースする。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `計画ゲーム`,
+			answer: `求める機能のコンセプトを短い文章で記したストーリーカードを作成する。そのカードをもとに、開発者・管理者を含めたチームとのミーティングを行い詳細を決定する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `EA`,
+			answer: `Enterprise Architecture, as-is and to be models. tech,application,data,business architectures. In a pyramid from base(tech) to top(business)`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `IT投資ポートフォリオ`,
+			answer: `投資リスクや投資価値の類似性で分類したカテゴリごとのIT投資について，企業レベルで最適な資源配分を行う`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `プロダクトイノベーションの説明`,
+			answer: `革新的な発明に基づいて，従来は市場に存在しなかった製品を開発し，市場に投入すること`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `破壊的イノベーションの説明`,
+			answer: `技術革新によって，後発製品が先発製品の市場を衰退させること`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `コモディティ化の説明`,
+			answer: `技術の成熟などによって，他社製品との差別化が価格以外の点で困難になること`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ブルーオーシャン戦略の説明`,
+			answer: `市場での価格競争を避けるために，他社製品とは異なる機能をもった製品を開発し，販売すること`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `デファクトスタンダード`,
+			answer: `競争を経て広く採用され，結果として事実上の標準となる。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `プロセスイノベーション`,
+			answer: `製品の品質を向上する革新的な製造工程を開発する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `アウトソーシング`,
+			answer: `半導体の製造プロセスをもっている企業に製造を委託する。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `EMS`,
+			answer: `Electronics Manufacturing Service`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `レベル1 情報伝達規約`,
+			answer: `ネットワーク回線や伝送手順など、文字通り情報をやり取りするための取り決め`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `レベル2 情報表現規約`,
+			answer: `データの構造やデータ項目など、表現法のルールなど情報データをお互いのコンピュータで理解できるようにするための取り決め`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `レベル3 業務運用規約`,
+			answer: `どんな情報をやり取りするか、情報の訂正方法やエラーの扱いなどの業務やシステムの運用に関する取り決め`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `レベル4 取引基本規約`,
+			answer: `検収時期、支払時期、支払方法などEDIにおける取引の法的有効性を確立するための取り決め`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `OC`,
+			answer: `Operating Characteristic curve: ロットの不良率とそのロットの合格率の関係を表したグラフです`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ポアソン分布`,
+			answer: `非常に大きな集団においてきわめて起こりにくい事象を対象としたときの分布です。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: `ワイブル分布`,
+			answer: `物体の体積と強度との関係を定量的に記述するための確率分布で、部品などの寿命特性を統計的に記述するために利用されます。`,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
+		{
+			question: ``,
+			answer: ``,
+			pictureQ: `images/0.png`,
+			pictureA: `images/0.png`,
+			level: 0,
+			dayCompleted: ``,
+		},
 	];
 	
 	if(localStorage.getItem(`data`) !== null){
 		dataPrev = JSON.parse(localStorage.getItem(`data`));
-		
+		numOfReviews = JSON.parse(localStorage.getItem(`numOfReviews`))
 		data.forEach(e => {
 			let pushThis = true;
 			dataPrev.forEach( f => {
@@ -1114,8 +2507,10 @@ body {
 
 		data = dataPrev;
 		localStorage.setItem(`data`, JSON.stringify(data));
+		localStorage.setItem(`numOfReviews`, JSON.stringify(numOfReviews));
 	} else {
 		localStorage.setItem(`data`, JSON.stringify(data));
+		localStorage.setItem(`numOfReviews`, JSON.stringify(numOfReviews));
 	};
 
 
@@ -1164,6 +2559,7 @@ body {
 			maximumScore = maximumScore + 10;
 		});
 	statsProgress.innerHTML = "Grade:  " + ~~((totalGrade/maximumScore)*100) + "%";
+
 	};
 	
 
@@ -1188,13 +2584,21 @@ body {
 	statsHolder.appendChild(statsDaysLeft);
 
 	const statsProgress = document.createElement("p");
-	calculateScore();
+
 	statsProgress.classList.add("statsProgress");
 	setTimeout(() => {
 		statsProgress.style.marginLeft = "0px";
 	}, 500);
 	statsHolder.appendChild(statsProgress);
 
+	const reviewsProgress = document.createElement("p");
+	reviewsProgress.innerHTML = "Reviews: " + numOfReviews;
+	reviewsProgress.classList.add("reviewsProgress");
+	setTimeout(() => {
+		reviewsProgress.style.marginLeft = "0px";
+	}, 500);
+	statsHolder.appendChild(reviewsProgress);
+	calculateScore();
 	statsHolder.addEventListener("click", () => {
 		openModal();
 	});
@@ -1291,7 +2695,14 @@ body {
 				};
 				closeModal();
 				localStorage.setItem(`data`, JSON.stringify(data));
-				setTimeout(() => {openModal()}, 10);
+				numOfReviews++;
+				localStorage.setItem(`numOfReviews`, JSON.stringify(numOfReviews));
+				if(numOfReviews%10 !== 0 ){
+					setTimeout(() => {openModal()}, 10);
+				} else {
+					reviewsProgress.innerHTML = "Reviews: " + numOfReviews;
+				}
+
 				
 			};
 		});
@@ -1321,7 +2732,7 @@ body {
 
 		modal.appendChild(questionP);
 		answerP && modal.appendChild(answerP);
-		console.log(data[currentNum].pictureA)
+		//console.log(data[currentNum].pictureA)
 		questionImg.src = isFlipped ? data[currentNum].pictureA : data[currentNum].pictureQ;	
 		modal.appendChild(questionImg);
 		outline.appendChild(backdrop);
